@@ -1,15 +1,17 @@
-# reconweb.py
-import requests
+# ReconWeb - Scanner de Vulnerabilidades Web
 
-def scan(url):
-    payloads = ["' OR '1'='1", "<script>alert(1)</script>", "../../etc/passwd"]
-    for payload in payloads:
-        r = requests.get(url + payload)
-        if r.status_code == 200 and payload in r.text:
-            print(f"[!] Vulnerabilidade possível: {payload}")
-        else:
-            print(f"[+] Testado: {payload}")
+## Descrição
+ReconWeb é uma ferramenta de **Pentest web** que automatiza testes básicos de vulnerabilidades como **XSS, SQL Injection e LFI**.
 
-if __name__ == "__main__":
-    target = input("Digite a URL alvo: ")
-    scan(target)
+## Tecnologias
+- Python 3
+- Requests
+
+## Funcionalidades
+- Testes de payloads comuns
+- Identificação rápida de falhas em aplicações web
+- Fácil expansão com novos payloads
+
+## Uso
+```bash
+python reconweb.py
